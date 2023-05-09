@@ -1,0 +1,15 @@
+{
+    "$id": "sharepointPagesSite_creatorName",
+    "$schema": "https://schema.yext.com/config/km/field/v1",
+    "description": "",
+    "displayName": "Creator Name",
+    "group": "NONE",
+    "localization": "PRIMARY_ONLY",
+    "type": {
+      "stringType": {
+        "stereotype": "SIMPLE",
+        "maxLength": 100000
+      }
+    },
+    "typeId": "string"
+  }

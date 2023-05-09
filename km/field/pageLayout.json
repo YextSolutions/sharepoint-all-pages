@@ -1,0 +1,14 @@
+{
+  "$id": "sharepointPagesSite_pageLayout",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Page Layout",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "stringType": {
+      "stereotype": "SIMPLE",
+      "maxLength": 100000
+    }
+  },
+  "typeId": "string"
+}

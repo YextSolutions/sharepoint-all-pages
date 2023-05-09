@@ -1,0 +1,16 @@
+{
+  "$id": "sharepointPagesSite_page.default",
+  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+  "name": "Page-default",
+  "entityType": "sharepointPagesSite_page",
+  "fields": [
+    "sharepointPagesSite_contentType",
+    "sharepointPagesSite_pageLayout",
+    "sharepointPagesSite_publishingState",
+    "landingPageUrl",
+    "sharepointPagesSite_creatorName",
+    "sharepointPagesSite_lastModifiedByName",
+    "sharepointPagesSite_lastModifiedDate"
+  ],
+  "required": []
+}

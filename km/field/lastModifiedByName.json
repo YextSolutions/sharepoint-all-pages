@@ -1,0 +1,15 @@
+{
+    "$id": "sharepointPagesSite_lastModifiedByName",
+    "$schema": "https://schema.yext.com/config/km/field/v1",
+    "description": "",
+    "displayName": "Last Modified By Name",
+    "group": "NONE",
+    "localization": "PRIMARY_ONLY",
+    "type": {
+      "stringType": {
+        "stereotype": "SIMPLE",
+        "maxLength": 100000
+      }
+    },
+    "typeId": "string"
+  }

@@ -1,0 +1,12 @@
+{
+    "$id": "sharepointPagesSite_lastModifiedDate",
+    "$schema": "https://schema.yext.com/config/km/field/v1",
+    "description": "",
+    "displayName": "Last Modified Date",
+    "group": "NONE",
+    "localization": "PRIMARY_ONLY",
+    "type": {
+      "dateType": {}
+    },
+    "typeId": "date"
+  }

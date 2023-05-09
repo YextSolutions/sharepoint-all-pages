@@ -1,0 +1,7 @@
+{
+  "$id": "sharepointPagesSite_page",
+  "$schema": "https://schema.yext.com/config/km/entity-type/v2",
+  "description": "Custom entity type for pages",
+  "displayName": "Page",
+  "pluralDisplayName": ""
+}

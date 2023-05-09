@@ -1,0 +1,60 @@
+{
+    "$id": "sharepointPagesSite_getSharepointSiteID",
+    "$schema": "https://schema.yext.com/config/km/connector/v3",
+    "displayName": "Get Sharepoint Site ID",
+    "source": {
+      "sourceConfig": {
+        "apiPullConfig": {
+          "requestType": "GET",
+          "url": "https://graph.microsoft.com/v1.0/sites?search\u003d*",
+          "authentication": {
+            "oauth": {
+              "linkedAccount": "${{microsoftLinkedAccount}}"
+            }
+          },
+          "headers": {},
+          "queryParams": {},
+          "dataFormat": "JSON"
+        }
+      },
+      "baseSelector": {
+        "type": "JSON",
+        "header": "Entity Container",
+        "path": "value"
+      },
+      "selectors": [
+        {
+          "type": "JSON",
+          "header": "Site Name",
+          "path": "name"
+        },
+        {
+          "type": "JSON",
+          "header": "Site ID",
+          "path": "id"
+        },
+        {
+          "type": "JSON",
+          "header": "Base Domain",
+          "path": "webUrl"
+        }
+      ]
+    },
+    "transforms": [
+      {
+        "extractText": {
+          "inputHeader": "Site ID",
+          "newColumnHeader": "Cleaned Site ID",
+          "extractOperation": "ALL_TEXT_AFTER",
+          "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+          "valueToFind": {
+            "plainText": {
+              "value": ",",
+              "ignoreCase": false
+            }
+          }
+        }
+      }
+    ],
+    "mappings": []
+  }
