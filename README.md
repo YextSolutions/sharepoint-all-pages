@@ -1,2 +1,2 @@
-# sharepoint-item-connector
-Git repo for Sharepoint Item Connector
+# Sharepoint Pages from a Site Connector
+Git repo for Sharepoint Pages from a Site Connector
