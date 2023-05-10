@@ -1,2 +1,2 @@
-# Sharepoint Pages from a Site Connector
-Git repo for Sharepoint Pages from a Site Connector
+# Sharepoint Site Pages Connector
+Git repo for Sharepoint Site Pages Connector
