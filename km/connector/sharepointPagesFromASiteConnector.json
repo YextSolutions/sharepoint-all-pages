@@ -1,7 +1,7 @@
 {
   "$id": "sharepointPagesSite_sharepointPagesFromASiteConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v3",
-  "displayName": "Sharepoint Pages from a Site Connector",
+  "displayName": "Sharepoint Site Pages Connector",
   "entityType": "sharepointPagesSite_page",
   "source": {
     "sourceConfig": {
@@ -9,8 +9,8 @@
         "source": "sharepoint",
         "operation": "fetchSitePages",
         "inputs": {
-          "microsoftLinkedAccount": "microsoft.danaTestAccount",
-          "siteId": "f32e498c-a8a8-4457-8433-1b24d09ad3d1,448b26b3-32a5-404e-984f-2c29e085d755"
+          "microsoftLinkedAccount": "${{microsoftLinkedAccount}}",
+          "siteId": "${{siteId}}"
         }
       }
     },
