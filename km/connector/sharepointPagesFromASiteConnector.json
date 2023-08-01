@@ -1,220 +1,226 @@
 {
-  "$id": "sharepointPagesSite_sharepointPagesFromASiteConnector",
-  "$schema": "https://schema.yext.com/config/km/connector/v3",
-  "displayName": "Sharepoint Site Pages Connector",
-  "entityType": "sharepointPagesSite_page",
-  "source": {
-    "sourceConfig": {
-      "nativeSourceConfig": {
-        "source": "sharepoint",
-        "operation": "fetchSitePages",
-        "inputs": {
-          "microsoftLinkedAccount": "${{microsoftLinkedAccount}}",
-          "siteId": "${{siteId}}"
-        }
-      }
-    },
-    "selectors": [
-      {
-        "type": "JSON",
-        "header": "\"@odata.etag\"",
-        "path": "\"@odata.etag\""
-      },
-      {
-        "type": "JSON",
-        "header": "eTag",
-        "path": "eTag"
-      },
-      {
-        "type": "JSON",
-        "header": "id",
-        "path": "id"
-      },
-      {
-        "type": "JSON",
-        "header": "lastModifiedDateTime",
-        "path": "lastModifiedDateTime"
-      },
-      {
-        "type": "JSON",
-        "header": "name",
-        "path": "name"
-      },
-      {
-        "type": "JSON",
-        "header": "webUrl",
-        "path": "webUrl"
-      },
-      {
-        "type": "JSON",
-        "header": "title",
-        "path": "title"
-      },
-      {
-        "type": "JSON",
-        "header": "pageLayout",
-        "path": "pageLayout"
-      },
-      {
-        "type": "JSON",
-        "header": "promotionKind",
-        "path": "promotionKind"
-      },
-      {
-        "type": "JSON",
-        "header": "showComments",
-        "path": "showComments"
-      },
-      {
-        "type": "JSON",
-        "header": "showRecommendedPages",
-        "path": "showRecommendedPages"
-      },
-      {
-        "type": "JSON",
-        "header": "createdBy.user.displayName",
-        "path": "createdBy.user.displayName"
-      },
-      {
-        "type": "JSON",
-        "header": "lastModifiedBy.user.displayName",
-        "path": "lastModifiedBy.user.displayName"
-      },
-      {
-        "type": "JSON",
-        "header": "parentReference.siteId",
-        "path": "parentReference.siteId"
-      },
-      {
-        "type": "JSON",
-        "header": "contentType.id",
-        "path": "contentType.id"
-      },
-      {
-        "type": "JSON",
-        "header": "contentType.name",
-        "path": "contentType.name"
-      },
-      {
-        "type": "JSON",
-        "header": "publishingState.level",
-        "path": "publishingState.level"
-      },
-      {
-        "type": "JSON",
-        "header": "publishingState.versionId",
-        "path": "publishingState.versionId"
-      },
-      {
-        "type": "JSON",
-        "header": "\"webParts@odata.context\"",
-        "path": "\"webParts@odata.context\""
-      },
-      {
-        "type": "JSON",
-        "header": "webParts",
-        "path": "webParts"
-      }
-    ]
-  },
-  "transforms": [
-    {
-      "addColumn": {
-        "newColumnHeader": "Base Site URL",
-        "columnValue": "https://ts01h.sharepoint.com/sites/"
-      }
-    },
-    {
-      "addColumn": {
-        "newColumnHeader": "Site Name",
-        "columnValue": "test/"
-      }
-    },
-    {
-      "mergeColumns": {
-        "inputHeaders": [
-          "Base Site URL",
-          "Site Name",
-          "webUrl"
-        ],
-        "newColumnHeader": "Landing Page URL",
-        "delimiter": ""
-      }
-    },
-    {
-      "formatDates": {
-        "inputHeaders": {
-          "headers": [
-            "lastModifiedDateTime"
-          ]
+    "$id": "sharepointPagesSite_sharepointPagesFromASiteConnector",
+    "$schema": "https://schema.yext.com/config/km/connector/v4",
+    "displayName": "Sharepoint Site Pages Connector",
+    "entityTypes": [
+        "sharepointPagesSite_page"
+    ],
+    "source": {
+        "sourceConfig": {
+            "nativeSourceConfig": {
+                "source": "sharepoint",
+                "operation": "fetchSitePages",
+                "inputs": {
+                    "microsoftLinkedAccount": "${{microsoftLinkedAccount}}",
+                    "siteId": "${{siteId}}"
+                }
+            }
         },
-        "inputFormat": "yyyy-MM-dd\u0027T\u0027kk:mm:ssX"
-      }
+        "selectors": [
+            {
+                "type": "JSON",
+                "header": "\"@odata.etag\"",
+                "path": "\"@odata.etag\""
+            },
+            {
+                "type": "JSON",
+                "header": "eTag",
+                "path": "eTag"
+            },
+            {
+                "type": "JSON",
+                "header": "id",
+                "path": "id"
+            },
+            {
+                "type": "JSON",
+                "header": "lastModifiedDateTime",
+                "path": "lastModifiedDateTime"
+            },
+            {
+                "type": "JSON",
+                "header": "name",
+                "path": "name"
+            },
+            {
+                "type": "JSON",
+                "header": "webUrl",
+                "path": "webUrl"
+            },
+            {
+                "type": "JSON",
+                "header": "title",
+                "path": "title"
+            },
+            {
+                "type": "JSON",
+                "header": "pageLayout",
+                "path": "pageLayout"
+            },
+            {
+                "type": "JSON",
+                "header": "promotionKind",
+                "path": "promotionKind"
+            },
+            {
+                "type": "JSON",
+                "header": "showComments",
+                "path": "showComments"
+            },
+            {
+                "type": "JSON",
+                "header": "showRecommendedPages",
+                "path": "showRecommendedPages"
+            },
+            {
+                "type": "JSON",
+                "header": "createdBy.user.displayName",
+                "path": "createdBy.user.displayName"
+            },
+            {
+                "type": "JSON",
+                "header": "lastModifiedBy.user.displayName",
+                "path": "lastModifiedBy.user.displayName"
+            },
+            {
+                "type": "JSON",
+                "header": "parentReference.siteId",
+                "path": "parentReference.siteId"
+            },
+            {
+                "type": "JSON",
+                "header": "contentType.id",
+                "path": "contentType.id"
+            },
+            {
+                "type": "JSON",
+                "header": "contentType.name",
+                "path": "contentType.name"
+            },
+            {
+                "type": "JSON",
+                "header": "publishingState.level",
+                "path": "publishingState.level"
+            },
+            {
+                "type": "JSON",
+                "header": "publishingState.versionId",
+                "path": "publishingState.versionId"
+            },
+            {
+                "type": "JSON",
+                "header": "\"webParts@odata.context\"",
+                "path": "\"webParts@odata.context\""
+            },
+            {
+                "type": "JSON",
+                "header": "webParts",
+                "path": "webParts"
+            }
+        ]
+    },
+    "transforms": [
+        {
+            "addColumn": {
+                "newColumnHeader": "Base Site URL",
+                "columnValue": "https://ts01h.sharepoint.com/sites/"
+            }
+        },
+        {
+            "addColumn": {
+                "newColumnHeader": "Site Name",
+                "columnValue": "test/"
+            }
+        },
+        {
+            "mergeColumns": {
+                "inputHeaders": [
+                    "Base Site URL",
+                    "Site Name",
+                    "webUrl"
+                ],
+                "newColumnHeader": "Landing Page URL",
+                "delimiter": ""
+            }
+        },
+        {
+            "formatDates": {
+                "inputHeaders": {
+                    "headers": [
+                        "lastModifiedDateTime"
+                    ]
+                },
+                "inputFormat": "yyyy-MM-dd'T'kk:mm:ssX"
+            }
+        }
+    ],
+    "mappings": [
+        {
+            "header": "publishingState.level",
+            "field": "sharepointPagesSite_publishingState",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "lastModifiedDateTime",
+            "field": "sharepointPagesSite_lastModifiedDate",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "pageLayout",
+            "field": "sharepointPagesSite_pageLayout",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "lastModifiedBy.user.displayName",
+            "field": "sharepointPagesSite_lastModifiedByName",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "id",
+            "field": "entityId",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "createdBy.user.displayName",
+            "field": "sharepointPagesSite_creatorName",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "title",
+            "field": "name",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "contentType.name",
+            "field": "sharepointPagesSite_contentType",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        },
+        {
+            "header": "Landing Page URL",
+            "field": "landingPageUrl",
+            "subfieldPath": [],
+            "clearValueIfBlank": false
+        }
+    ],
+    "scheduleConfig": {
+        "customSchedule": {
+            "timeZone": "America/New_York",
+            "startDate": "2023-05-08",
+            "startTime": "07:00",
+            "frequencyType": "HOURLY"
+        },
+        "runMode": "DEFAULT"
+    },
+    "comprehensiveModeConfig": {
+        "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+        "actionOnMissingEntities": "DELETE"
     }
-  ],
-  "mappings": [
-    {
-      "header": "publishingState.level",
-      "field": "sharepointPagesSite_publishingState",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "lastModifiedDateTime",
-      "field": "sharepointPagesSite_lastModifiedDate",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "pageLayout",
-      "field": "sharepointPagesSite_pageLayout",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "lastModifiedBy.user.displayName",
-      "field": "sharepointPagesSite_lastModifiedByName",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "id",
-      "field": "entityId",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "createdBy.user.displayName",
-      "field": "sharepointPagesSite_creatorName",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "title",
-      "field": "name",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "contentType.name",
-      "field": "sharepointPagesSite_contentType",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    },
-    {
-      "header": "Landing Page URL",
-      "field": "landingPageUrl",
-      "subfieldPath": [],
-      "clearValueIfBlank": false
-    }
-  ],
-  "scheduleConfig": {
-    "customSchedule": {
-      "timeZone": "America/New_York",
-      "startDate": "2023-05-08",
-      "startTime": "07:00",
-      "frequencyType": "HOURLY"
-    },
-    "runMode": "DEFAULT"
-  }
 }
